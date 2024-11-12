@@ -1,0 +1,497 @@
+body {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header h2, .content h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: calc(80px); /* Adjust for the minimized sidebar plus padding */
+    margin-top: 0;
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease; /* Smooth transition when sidebar is toggled */
+}
+
+header h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #34495E;
+}
+
+.content h3 {
+    margin-bottom: 20px;
+    color: #34495E;
+}
+
+/* Sidebar */
+.sidebar {
+    --sidebar-width: 200px;
+    width: var(--sidebar-width);
+    height: calc(100vh - 40px); /* Adjust to ensure full height including padding */
+    background-color: #da7a0d; /* Orange background */
+    padding: 20px;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); /* Added shadow */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 2;
+}
+
+.logo h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #703905;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, transform 0.3s, box-shadow 0.3s; /* Added transform and box-shadow transition */
+    width: 100%; /* Set the width to 100% to match the sidebar width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    border: 2px solid transparent; /* Default border */
+    transform: scale(1); /* Default scale */
+}
+
+.nav-links a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: #c55900;
+    color: #ECF0F1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover and active state */
+}
+
+.nav-links a:hover {
+    background-color: #c55900;
+    color: #ECF0F1;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Shadow to create a pop-out effect */
+    transform: scale(1.05); /* Slightly increase size */
+}
+
+.nav-links a.active {
+    background-color: #c55900;
+    color: #ECF0F1;
+    border: 2px solid #ffffff; /* White border for the active state */
+}
+
+/* Logout Icon Container */
+.logout {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: auto; /* Pushes the logout icon to the bottom */
+}
+
+/* Logout Icon Container */
+.logout {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: auto; /* Pushes the logout icon to the bottom */
+}
+
+/* Logout Icon Container */
+.logout {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: auto; /* Pushes the logout icon to the bottom */
+}
+
+/* Logout Button */
+.logout-button {
+    display: flex;
+    justify-content: center; /* Center the icon before hover */
+    align-items: center;
+    width: 50px; /* Default width */
+    height: 50px; /* Default height */
+    background-color: #e74c3c; /* Red background for the button */
+    border-radius: 50%; /* Circular button by default */
+    color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, width 0.3s, border-radius 0.3s, padding 0.3s; /* Smooth transitions */
+    text-align: center; /* Center the icon */
+    border: none; /* Remove border */
+    text-decoration: none; /* Remove underline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    overflow: hidden; /* Hide overflow for the text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    position: relative; /* For controlling child element positions */
+}
+
+/* Icon inside the Logout Button */
+.logout-button i {
+    font-size: 24px; /* Adjust the icon size */
+    margin: 0; /* Remove margin around icon */
+    transition: margin-left 0.3s; /* Smooth transition for margin */
+    position: absolute; /* Allow control of positioning */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for true center */
+}
+
+/* Text inside the Logout Button */
+.logout-button span {
+    opacity: 0; /* Hidden by default */
+    margin-left: 0; /* No space before hover */
+    transition: opacity 0.3s, margin-left 0.3s; /* Smooth transitions for opacity and margin-left */
+    position: absolute; /* Allow control of positioning */
+    left: 70px; /* Initial position just outside of the button */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Hover State */
+.logout-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    width: 120px; /* Increase width to show text */
+    border-radius: 15px; /* Change to rounded rectangle */
+    padding-left: 20px; /* Add padding to make room for text */
+    justify-content: flex-start; /* Align icon and text to the left */
+}
+
+/* Hover State for Icon */
+.logout-button:hover i {
+    left: 20px; /* Move icon to the left on hover */
+    transform: none; /* Remove centering transform */
+}
+
+/* Hover State for Text */
+.logout-button:hover span {
+    opacity: 1; /* Show the text */
+    left: 50px; /* Adjust text position next to the icon */
+    margin-left: 10px; /* Space between icon and text */
+}
+
+/* Sidebar in Minimized State */
+.sidebar .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Allow height to adjust naturally */
+    margin: -20px 0 10px 0; /* Keep margin for spacing in the maximized state */
+}
+
+.sidebar.minimized ~ .main-content {
+    margin-left: calc(80px + 40px); /* Minimized sidebar width + padding */
+}
+
+.sidebar:not(.minimized) ~ .main-content {
+    margin-left: calc(200px + 40px); /* Maximized sidebar width + padding */
+}
+
+.sidebar.minimized {
+    --sidebar-width: 80px;
+    width: var(--sidebar-width);
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling if necessary */
+    transition: width 0.3s ease;
+}
+
+.sidebar.minimized .nav-links a span,
+.sidebar.minimized .logout-button span {
+    display: none; /* Hide the text */
+}
+
+.sidebar.minimized .nav-links a i,
+.sidebar.minimized .logout-button i {
+    font-size: 24px;
+    margin-right: 0; /* Center the icon when text is hidden */
+}
+
+.sidebar.minimized .logo img {
+    width: 50%; /* Adjust logo size in minimized state */
+    margin: 0; /* Remove margin to center the logo */
+}
+
+.sidebar.minimized .logout-button {
+    width: 50px; /* Reduce width to default */
+    height: 50px; /* Reduce height to default */
+    border-radius: 50%; /* Keep circular button */
+    padding-left: 0; /* Remove padding */
+    justify-content: center; /* Center icon */
+}
+
+.sidebar.minimized .logout-button:hover span,
+.sidebar.minimized .nav-links a:hover span {
+    display: none;
+}
+
+/* Centering the toggle button in the minimized sidebar */
+.sidebar.minimized .toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Ensure this matches the height of your minimized sidebar */
+    width: 100%;
+    margin-left: -11px; /* Reset margin if needed */
+}
+
+/* Minimized State for Navigation Links */
+.sidebar.minimized .nav-links a {
+    padding: 10px; /* Add padding to maintain spacing around the icon */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center text and icons within the link */
+    display: flex; /* Use flexbox for better alignment control */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Ensure links take full width */
+}
+
+/* Icon styles when the sidebar is minimized */
+.sidebar.minimized .nav-links a i {
+    font-size: 24px; /* Set icon size */
+    margin: 0; /* Remove any default margin */
+}
+
+/* Minimized Sidebar Logo */
+.sidebar.minimized .logo {
+    height: 100px; /* Fixed height in minimized state */
+    margin: 0; /* Remove margins for centering */
+}
+
+.sidebar.minimized .logo img {
+    width: 50%; /* Adjust logo size in minimized state */
+    margin: 0; /* Center the logo without additional margins */
+}
+
+.sidebar:not(.minimized) .logo img {
+    width: 80%; /* Original logo size in maximized state */
+    margin: 0 0 20px 0; /* Apply bottom margin only */
+}
+
+/* Toggle Button */
+.toggle-btn {
+    text-align: right;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover State for Logout Button (Minimized Sidebar) */
+.sidebar.minimized .logout-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    width: 50px; /* Keep the width fixed */
+    border-radius: 50%; /* Keep circular button */
+    padding-left: 0; /* No padding */
+    justify-content: center; /* Keep icon centered */
+}
+
+/* Icon inside the Logout Button */
+.sidebar.minimized .logout-button i {
+    left: 50%; /* Keep icon centered */
+    transform: translateX(-50%); /* Adjust for true center */
+}
+
+/* Prevent text from showing in minimized state */
+.sidebar.minimized .logout-button span {
+    display: none; /* Hide text completely */
+}
+
+/* Transition class for minimizing effect */
+.sidebar.minimizing {
+    transition: width 0.3s ease; /* Ensure this matches the JavaScript setTimeout duration */
+}
+
+.sidebar.minimized {
+    width: 80px; /* Minimized width */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling if necessary */
+}
+
+/* Centering the login card */
+.login-body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    margin: 0;
+    overflow:hidden;
+}
+
+.login-body::before {
+    content: ""; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px); /* Adjust the blur intensity as needed */
+    z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+.login-body::after {
+    content: ""; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(187, 84, 0, 0.5)); /* Apply the gradient with 50% opacity */
+    z-index: -1; /* Ensure the gradient is above the blurred image but below content */
+}
+
+.login-container {
+    display: flex;
+    width: 1000px; /* Width of the card */
+    height: 500px; /* Height of the card */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to the card */
+    overflow: hidden; /* Ensure content does not overflow the card */
+}
+
+/* Left side of the card with gradient background */
+.login-left {
+    flex: 1;
+    background: linear-gradient(to right, #ff9430, #bb5400); /* Gradient background */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+/* Image inside the gradient background */
+.login-image {
+    background: url('images/EMG logo.png') no-repeat center center;
+    background-size: contain; /* Fit the image within the container */
+    width: 75%; /* Adjust as needed */
+    height: 75%; /* Adjust as needed */
+    max-width: 600px; /* Optional: Set a maximum width */
+    max-height: 400px; /* Optional: Set a maximum height */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Right side of the card with form */
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    position: relative; /* For overlay positioning */
+    background: url('images/rightcardbg.png') no-repeat center center; /* Set the background image */
+    background-size: cover; /* Cover the entire area */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the form container */
+    color: #fff; /* White text color to ensure contrast against the background */
+}
+
+/* Heading styles in the form */
+.login-right h2 {
+    margin: 0 0 20px 20px; /* Space below the heading */
+    font-size: 40px; /* Adjust font size as needed */
+    text-align: center; /* Center the text */
+}
+
+/* Input Group with Drop Shadow */
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    background-color: #fff; /* Solid white background */
+    border: 2px solid #da7a0d; /* Orange border */
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow to input group */
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #da7a0d;
+}
+
+/* Remove drop shadow from the input itself */
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    box-shadow: none; /* Ensure no shadow on the input itself */
+    color: #da7a0d;
+}
+
+/* Center and adjust width of login button */
+.login-button {
+    background-color: #f17603;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease; /* Add width transition */
+    max-width: 100%; /* Ensure button takes full width of its container */
+    width: 100px;
+    margin-left: 70px; /* Center horizontally with margin auto and add space above */
+    display: block; /* Ensure it behaves like a block element for margin auto to work */
+    text-align: center; /* Center text within button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+/* Hover state for login button */
+.login-button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    transform: scale(1.2); /* Increase size equally in all directions */
+}
+
+/* Gradient Text for Login Section */
+.login-right h1, .login-right h2, .login-right h3, .login-right p {
+    background: linear-gradient(to right, #ff9430, #bb5400); /* Gradient color */
+    -webkit-background-clip: text; /* Clips the background to text for WebKit browsers */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient for WebKit browsers */
+    background-clip: text; /* Clips the background to text for other browsers */
+    color: transparent; /* Ensures compatibility with browsers that do not support background-clip: text */
+}
+
+/* Styles for error popup */
+.error-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ff4d4d; /* Red background for error */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000; /* Make sure it's on top of other elements */
+    font-size: 16px;
+}
